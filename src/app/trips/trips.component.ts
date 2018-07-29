@@ -19,7 +19,7 @@ export class TripsComponent implements OnInit {
   constructor(private httpService: HttpClient) { }
 
 
-  configUrl = 'http://127.0.0.1:8080/kurseuro';
+  configUrl = 'http://127.0.0.1:8080/cenaeuro';
 
   getConfig() {
     return this.httpService.get(this.configUrl);
