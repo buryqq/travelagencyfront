@@ -7,6 +7,11 @@ import { TripsComponent } from './trips/trips.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AirportsComponent } from './airports/airports.component';
+import { AirportFormComponent } from './airport-form/airport-form.component';
+
+import { FormsModule }   from '@angular/forms';
+import { TripDetailComponent } from './trip-detail/trip-detail.component';
+import { AppRoutingModule } from './/app-routing.module';
   
 const appRoutes: Routes = [
   { path: 'trips', component: TripsComponent },
@@ -29,7 +34,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     TripsComponent,
-    AirportsComponent
+    AirportsComponent,
+    AirportFormComponent,
+    TripDetailComponent,    
   ],
   imports: [
     RouterModule.forRoot(
@@ -37,7 +44,9 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     ),
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

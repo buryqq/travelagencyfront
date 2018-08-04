@@ -4,5 +4,6 @@ export class Airportlist {
 
 
     airportListResponse:Airport[];
+    airportListResponse2:Airport[];
 
 }

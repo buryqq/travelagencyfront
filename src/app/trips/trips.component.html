@@ -1,7 +1,47 @@
 <p>
   trips works!
-  <!-- {{name}} -->
-  <!-- {{trip.name}}
-  {{trip.price}} -->
-  {{trip.kurs}}
+  kurse euro : 
+  {{kurs.kurs}}
 </p>
+
+template: `
+<p>Trips all :</p>
+<ul>
+  <li *ngFor="let a of triplist" (click)="onSelect(a)">
+    {{ a.id }}  <---- click me !!
+   </li>
+</ul>
+
+
+
+<!-- 
+<div *ngIf="selectedTrip">
+
+    <h2>{{selectedTrip.name | uppercase}} Details</h2>
+    <div><span>id: </span>{{selectedTrip.id}}</div>
+    <div><span>airportFrom: </span>{{selectedTrip.airportFrom}}</div>
+    <div><span>airportTo: </span>{{selectedTrip.airportTo}}</div>
+    <div><span>hotelTo: </span>{{selectedTrip.hotelTo}}</div>
+    <div><span>cityTo: </span>{{selectedTrip.cityTo}}</div>
+    <div><span>departureDate: </span>{{selectedTrip.departureDate}}</div>
+    <div><span>returnDate: </span>{{selectedTrip.returnDate}}</div>
+    <div><span>countOfDays: </span>{{selectedTrip.countOfDays}}</div>
+    <div><span>type: </span>{{selectedTrip.type}}</div>
+    <div><span>priceForAdult: </span>{{selectedTrip.priceForAdult}}</div>
+    <div><span>priceForChild: </span>{{selectedTrip.priceForChild}}</div>
+    <div><span>promotion: </span>{{selectedTrip.promotion}}</div>
+    <div><span>countOfPeople: </span>{{selectedTrip.countOfPeople}}</div>
+    <div><span>description: </span>{{selectedTrip.description}}</div>
+
+  </div> -->
+
+  <app-trip-detail [trip]="selectedTrip"></app-trip-detail>
+
+
+  <ul class="trips">
+      <li *ngFor="let trip of triplist">
+        <a routerLink="/detail/{{trip.id}}">
+          <span class="badge">{{trip.id}}</span> 
+        </a>
+      </li>
+    </ul>

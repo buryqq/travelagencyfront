@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Airport Form</h1>
+  <form (ngSubmit)="onSubmit(model)" #airportForm="ngForm">
+      {{diagnostic}}
+    <div class="form-group">
+      <label for="cityname">Cityname</label>
+      <select class="form-control" id="cityname" required
+      [(ngModel)]="model.cityid" name="cityname">
+        <option *ngFor="let n of citylist" [value]="n.id">{{n.name}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="name">name  </label>
+      <input type="text" class="form-control" id="name" required
+      [(ngModel)]="model.name" name="name"
+      #spy>
+      <br>TODO: remove this: {{spy.className}}
+      TODO: remove this: {{model.name}}
+    </div>
+
+ 
+  
+
+    <button type="button" class="btn btn-default" (click)="newAirport()">New Airport</button>
+    <button type="submit" class="btn btn-success" [disabled]="!airportForm.form.valid">Submit</button>
+  </form>
+</div>

@@ -8,3 +8,28 @@
   {{airport.cityid}}
   {{airport.cityname}}
 </p>
+
+
+template: `
+  <p>Airport after search:</p>
+  <ul>
+    <li *ngFor="let airport of airportlist">
+      {{ airport.name }}
+      {{ airport.cityname }}
+    </li>
+  </ul>
+
+
+  template: `
+  <p>Airports all :</p>
+  <ul>
+    <li *ngFor="let airport1 of airportlist2">
+      {{ airport1.name }}
+      {{ airport1.cityname }}
+    </li>
+  </ul>
+
+
+
+
+<app-airport-form></app-airport-form>

@@ -11,7 +11,8 @@ import { Airportlist } from '../models/airportlist';
 export class AirportsComponent implements OnInit {
 
   airport: Airport=new Airport();
-
+airportlist: Airport[] = new Array<Airport>();
+airportlist2: Airport[] = new Array<Airport>();
   constructor(private httpService: HttpClient) { }
 
 
@@ -21,11 +22,16 @@ export class AirportsComponent implements OnInit {
     return this.httpService.get(this.configUrl);
   }
 
+
+
   showConfig() {
     this.getConfig()
       .subscribe((data: Airportlist) => {
         console.log(data);
-     
+
+     this.airportlist=data.airportListResponse;
+     this.airportlist2=data.airportListResponse2;
+
 this.airport=data.airportListResponse[0];
         // this.trip.kurs=data.kurs;
       });

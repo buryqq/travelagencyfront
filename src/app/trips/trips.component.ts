@@ -13,8 +13,12 @@ export class TripsComponent implements OnInit {
 
 
 
-  trip: Trip=new Trip();
-  
+  kurs: Trip=new Trip();
+  triplist: Trip[]=new Array<Trip>();
+
+
+ 
+    
   // name = 'New name';
   constructor(private httpService: HttpClient) { }
 
@@ -30,18 +34,46 @@ export class TripsComponent implements OnInit {
       .subscribe((data: Triplist) => {
         console.log(data);
      
-this.trip=data.kursy[0];
+this.kurs=data.kursy[0];
         // this.trip.kurs=data.kurs;
       });
   }
+
+  
+  configUrl2 = 'http://localhost:8080/trips';
+
+  getConfig2() {
+    return this.httpService.get(this.configUrl2);
+  }
+
+  showConfig2() {
+    this.getConfig2()
+      .subscribe((data2: Triplist) => {
+        console.log(data2);
+     
+this.triplist=data2.tripListResponse;
+      
+      });
+  }
+
+  selectedTrip: Trip;
+
+onSelect(trip: Trip): void {
+  this.selectedTrip = trip;
+}
+
+
+
+
+    TRIPS: Trip[]=this.triplist
 
 
 
   ngOnInit() {
   
     this.showConfig();
-
-
+    this.showConfig2();
+   
 
     
 

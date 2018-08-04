@@ -1,9 +1,10 @@
-export class Airport {
+export class City {
 
   public name:String
   public id:number
-  public cityid:number
-  public cityname:String
+  public countryid:number
+ 
+
 
 // constructor(
 //     public name:String,
