@@ -1,14 +1,14 @@
 export class Trip {
 
-kurs:number;
-id:number;
+kurs:number
+id:number
 airportFrom:String
 airportTo:String
 hotelTo:String
 cityTo:String
 departureDate:number
-returnDate:Date
-countOfDays:Date
+returnDate:number
+countOfDays:number
 type:String
 priceForAdult:number
 priceForChild:number

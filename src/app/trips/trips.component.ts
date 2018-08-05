@@ -3,25 +3,21 @@ import {Trip} from "../models/trip";
 import { HttpClient } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Triplist } from '../models/triplist';
+import { TripService } from '../trip.service';
 
 @Component({
   selector: 'new-trips',
   templateUrl: './trips.component.html',
   styleUrls: ['./trips.component.css']
 })
+
 export class TripsComponent implements OnInit {
-
-
 
   kurs: Trip=new Trip();
   triplist: Trip[]=new Array<Trip>();
-
-
- 
     
   // name = 'New name';
   constructor(private httpService: HttpClient) { }
-
 
   configUrl = 'http://127.0.0.1:8080/cenaeuro';
 
@@ -57,27 +53,22 @@ this.triplist=data2.tripListResponse;
   }
 
   selectedTrip: Trip;
+  dataprzyl: Date;
+  datawyl: Date;
+
+
 
 onSelect(trip: Trip): void {
   this.selectedTrip = trip;
+  this.dataprzyl = new Date(this.selectedTrip.departureDate);
+  this.datawyl = new Date(this.selectedTrip.returnDate);
+  
 }
 
-
-
-
-    TRIPS: Trip[]=this.triplist
-
-
-
   ngOnInit() {
-  
     this.showConfig();
     this.showConfig2();
    
-
-    
-
-
   }
 
 }

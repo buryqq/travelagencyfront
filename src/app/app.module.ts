@@ -11,7 +11,7 @@ import { AirportFormComponent } from './airport-form/airport-form.component';
 
 import { FormsModule }   from '@angular/forms';
 import { TripDetailComponent } from './trip-detail/trip-detail.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
   
 const appRoutes: Routes = [
   { path: 'trips', component: TripsComponent },

@@ -10,24 +10,41 @@ import { TripService }  from '../trip.service';
   templateUrl: './trip-detail.component.html',
   styleUrls: ['./trip-detail.component.css']
 })
+
+
+
 export class TripDetailComponent implements OnInit {
-
   @Input() trip: Trip;
-
+  @Input() dataprzyl: Date;
+  @Input() datawyl: Date;
+ 
   constructor(
     private route: ActivatedRoute,
-    private heroService: TripService,
-    private location: Location
+    private tripservice: TripService,
+    private location: Location  
   ) {}
 
-  ngOnInit() {
-    this.getTrip();
-  }
 
   getTrip(): void {
+    console.log('lalala')
     const id = +this.route.snapshot.paramMap.get('id');
-    this.heroService.getTrip(id)
+    console.log(id)
+        this.tripservice.getTrip(id)
       .subscribe(trip => this.trip = trip);
+      console.log(this.trip)
+
+
+  
+      
   }
+
+ 
+
+
+
+  ngOnInit() {
+       this.getTrip();
+       
+      }
 
 }
